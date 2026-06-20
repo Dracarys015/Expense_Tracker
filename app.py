@@ -14,7 +14,7 @@ logging.basicConfig(
 )
  
 dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
-table = dynamodb.Table('Expenses')
+table = dynamodb.Table('Expense')
  
 @app.route('/', methods=['GET', 'POST'])
 def index():
