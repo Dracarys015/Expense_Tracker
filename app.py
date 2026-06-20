@@ -35,7 +35,26 @@ def index():
 
         } 
 
+        
+import logging 
+
+  
+
+logging.basicConfig( 
+
+    filename='/var/log/expense.log', 
+
+    level=logging.INFO, 
+
+    format='%(asctime)s %(levelname)s %(message)s' 
+
+) 
+
+
+
         table.put_item(Item=item) 
+
+        logging.info(f"Expense added: {item['category']} - ₹{item['amount']}") 
 
         return "Expense recorded!" 
 
