@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import boto3
 from datetime import datetime
+from decimal import Decimal
 import uuid
 import logging
  
@@ -22,7 +23,7 @@ def index():
         item = {
             'id': str(uuid.uuid4()),
             'category': request.form['category'],
-            'amount': float(request.form['amount']),
+            'amount': Decimal(request.form['amount']),
             'date': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
  
